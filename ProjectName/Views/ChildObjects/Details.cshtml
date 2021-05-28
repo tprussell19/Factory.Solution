@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@model ProjectName.Models.ChildObject
+
+<h2>@Html.DisplayFor(model => model.SomeProperty)</h2>
+<hr />
+<h5>@Html.DisplayNameFor(model => model.SomeOtherProperty): @Html.DisplayFor(model => model.SomeOtherProperty)</h5>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit childObject", "Edit", new { id = Model.ChildObjectId })</p>
+<p>@Html.ActionLink("Delete childObject", "Delete", new { id = Model.ChildObjectId })</p>

@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model ProjectName.Models.ParentObject
+
+<h4>Add a new parentObject</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.SomeProperty, new {@class="form-label"})
+  @Html.TextBoxFor(model => model.SomeProperty, new {@class = "form-control", type="text", id="some-property"})
+  <input type="submit" value="Add New ParentObject" class="btn btn-outline-success" />
+}
+<p>@Html.ActionLink("Show All ParentObjects", "Index")</p>

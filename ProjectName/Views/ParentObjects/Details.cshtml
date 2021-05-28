@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using ProjectName.Models
+@model ProjectName.Models.ParentObject
+
+<h2>ParentObject Details:</h2>
+<hr />
+<h4>@Html.DisplayFor(model => model.SomeProperty)</h4>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit parentObject", "Edit", new { id = Model.ParentObjectId })</p>
+<p>@Html.ActionLink("Delete parentObject", "Delete", new { id = Model.ParentObjectId })</p>
+
+@foreach (ChildObject childObject in ViewBag.ChildObjects)
+{
+  if (childObject.ParentObjectId == Model.ParentObjectId)
+  {
+    <li>@Html.ActionLink($"{childObject.SomeProperty}", "Details", "ChildObjects", new { id = childObject.ChildObjectId})
+</li>
+  }
+}
