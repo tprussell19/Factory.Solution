@@ -30,13 +30,13 @@ _This is a C#/ASP.NET Core application that allows a baker named Pierre to keep 
 
 ### Installation
 
-1. Clone the repository: `$ git clone https://github.com/tprussell19/ProjectName.Solution`
-2. Navigate to the `ProjectName.Solution/` directory on your computer
+1. Clone the repository: `$ git clone https://github.com/tprussell19/Factory.Solution`
+2. Navigate to the `Factory.Solution/` directory on your computer
 3. Open with your preferred text editor to view the code base
 4. Create a database using SQL via MySQL:
 
 5. To run the app:
-   - Navigate to `ProjectName.Solution/ProjectName` in your command line
+   - Navigate to `Factory.Solution/Factory` in your command line
    - Run the command `dotnet restore` to restore the dependencies that are listed in the .csproj
    - Run the commmand `dotnet build` to build the project and its dependencies into a set of binaries
    - Finally, run the command `dotnet run` to run the project!

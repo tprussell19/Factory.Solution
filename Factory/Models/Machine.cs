@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace ProjectName.Models
+namespace Factory.Models
 {
-  public class ChildObject
+  public class Machine
   {
-    public int ChildObjectId { get; set; }
+    public int MachineId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public int Price { get; set; }
     public string Location { get; set; }
-    public int ParentObjectId { get; set; }
-    public virtual ParentObject ParentObject { get; set; }
+    public int EngineerId { get; set; }
+    public virtual Engineer Engineer { get; set; }
   }
 }

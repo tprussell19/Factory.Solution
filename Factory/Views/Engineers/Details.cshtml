@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+@model Factory.Models.Engineer
+
+<h2>Engineer Details:</h2>
+<hr />
+<h4>@Html.DisplayFor(model => model.SomeProperty)</h4>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit engineer", "Edit", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Delete engineer", "Delete", new { id = Model.EngineerId })</p>
+
+@foreach (Machine machine in ViewBag.Machines)
+{
+  if (machine.EngineerId == Model.EngineerId)
+  {
+    <li>@Html.ActionLink($"{machine.SomeProperty}", "Details", "Machines", new { id = machine.MachineId})
+</li>
+  }
+}

@@ -2,14 +2,14 @@
   Layout = "_Layout";
 }
 
-@model ProjectName.Models.ParentObject
+@model Factory.Models.Engineer
 
 <h2>Edit: @Html.DisplayFor(model => model.SomeProperty)</h2>
 <hr />
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.ParentObjectId)
+  @Html.HiddenFor(model => model.EngineerId)
 
   @Html.LabelFor(model => model.SomeProperty, new {@class="form-label"})
   @Html.EditorFor(model => model.SomeProperty, new {@class = "form-control", type="text", id="some-property"})
