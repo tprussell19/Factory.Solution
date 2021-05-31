@@ -7,7 +7,7 @@
 
 <h2>Engineer Details:</h2>
 <hr />
-<h4>@Html.DisplayFor(model => model.SomeProperty)</h4>
+<h4>@Html.DisplayFor(model => model.Name)</h4>
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit engineer", "Edit", new { id = Model.EngineerId })</p>
@@ -17,7 +17,7 @@
 {
   if (machine.EngineerId == Model.EngineerId)
   {
-    <li>@Html.ActionLink($"{machine.SomeProperty}", "Details", "Machines", new { id = machine.MachineId})
+    <li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = machine.MachineId})
 </li>
   }
 }

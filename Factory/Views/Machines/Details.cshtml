@@ -4,9 +4,16 @@
 
 @model Factory.Models.Machine
 
-<h2>@Html.DisplayFor(model => model.SomeProperty)</h2>
+<h2>@Html.DisplayFor(model => model.Name)</h2>
 <hr />
-<h5>@Html.DisplayNameFor(model => model.SomeOtherProperty): @Html.DisplayFor(model => model.SomeOtherProperty)</h5>
+@foreach (Engineer engineer in ViewBag.Engineers)
+{
+  if (engineer.MachineId == Model.MachineId)
+  {
+    <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = engineer.EngineerId})
+</li>
+  }
+}
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit machine", "Edit", new { id = Model.MachineId })</p>
