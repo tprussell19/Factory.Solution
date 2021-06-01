@@ -19,6 +19,11 @@ else
     {
       <li>
         @Html.ActionLink($"{join.Engineer.Name}", "Details", "Engineers", new { id = join.Engineer.EngineerId })
+        | @using (Html.BeginForm("DeleteEngineer", "Machines"))
+        {
+          @Html.Hidden("joinId", @join.EngineerMachineId)
+          <input type="submit" value="Delete" />
+        }
       </li>
     }
   </ul>
