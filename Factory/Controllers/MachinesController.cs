@@ -17,7 +17,7 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      List<Machine> model = _db.Machines.Include(machine => machine.Engineer).ToList();
+      List<Machine> model = _db.Machines.ToList();
       return View(model);
     }
 
@@ -86,7 +86,7 @@ namespace Factory.Controllers
 
       if (EngineerId != 0 && joinTableEntry == null)
       {
-        _db.EngineerMachine.Add(new EngineerMachine() { EngineerID = EngineerId, MachineId = machine.MachineId });
+        _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
         _db.SaveChanges();
       }
       return RedirectToAction("Details", new { id = machine.MachineId });
