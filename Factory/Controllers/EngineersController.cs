@@ -1,5 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace Factory.Controllers
     }
     public ActionResult Create()
     {
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name", new { @class = "custom-select" });
       return View();
     }
     [HttpPost]
@@ -75,8 +77,6 @@ namespace Factory.Controllers
       catch
       {
       }
-
-
       if (MachineId != 0 && joinTableEntry == null)
       {
         _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
