@@ -9,15 +9,21 @@
 <hr />
 <h4>@Html.DisplayFor(model => model.Name)</h4>
 
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>This engineer is not licensed to repair any machines yet</p>
+}
+else
+{
+  <h4>Machines that this engineer is licensed to repair:</h4>
+  <ul>
+  @foreach (var join in Model.JoinEntities)
+    {
+      <li>@Html.ActionLink($"{join.Machine.Name}", "Details", "Machines", new { id = join.Machine.MachineId})</li>
+    }
+  </ul>
+}
+
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit engineer", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Delete engineer", "Delete", new { id = Model.EngineerId })</p>
-
-@foreach (Machine machine in ViewBag.Machines)
-{
-  if (machine.EngineerId == Model.EngineerId)
-  {
-    <li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = machine.MachineId})
-</li>
-  }
-}

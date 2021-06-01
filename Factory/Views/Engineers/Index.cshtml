@@ -10,10 +10,12 @@
 {
   <h3>No Engineers have been added yet!</h3>
 }
-
-@foreach (Engineer engineer in Model)
+else
 {
-  <li>@Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId})</li>
+  @foreach (Engineer engineer in Model)
+  {
+    <li>@Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId})</li>
+  }
 }
 
 <p>@Html.ActionLink("Add new engineer", "Create")</p>

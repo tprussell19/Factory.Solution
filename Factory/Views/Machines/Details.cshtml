@@ -6,13 +6,21 @@
 
 <h2>@Html.DisplayFor(model => model.Name)</h2>
 <hr />
-@foreach (Engineer engineer in ViewBag.Engineers)
+@if (@Model.JoinEntities.Count == 0)
 {
-  if (engineer.MachineId == Model.MachineId)
-  {
-    <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = engineer.EngineerId})
-</li>
-  }
+  <p>This machine does not have any engineers licensed to repaor it yet.</p>
+}
+else
+{
+  <h4>Engineers licensed to repair this machine:</h4>
+  <ul>
+  @foreach (var join in Model.JoinEntities)
+    {
+      <li>
+        @Html.ActionLink($"{join.Engineer.Name}", "Details", "Engineers", new { id = join.Engineer.EngineerId })
+      </li>
+    }
+  </ul>
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
