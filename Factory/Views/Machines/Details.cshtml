@@ -9,6 +9,7 @@
 @if (@Model.JoinEntities.Count == 0)
 {
   <p>This machine does not have any engineers licensed to repair it yet.</p>
+  <p>@Html.ActionLink("Add an engineer now!", "AddEngineer", new { id = Model.MachineId })</p>
 }
 else
 {
@@ -21,6 +22,7 @@ else
       </li>
     }
   </ul>
+  <p>@Html.ActionLink("Add another engineer to this machine", "AddEngineer", new { id = Model.MachineId })</p>
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>

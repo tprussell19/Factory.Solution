@@ -23,7 +23,6 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name", new { @class = "custom-select" });
       return View();
     }
 
@@ -69,6 +68,13 @@ namespace Factory.Controllers
       _db.Machines.Remove(thisMachine);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    public ActionResult AddEngineer(int id)
+    {
+      Machine selectedMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      return View(selectedMachine);
     }
 
     [HttpPost]
