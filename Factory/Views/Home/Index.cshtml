@@ -1,6 +1,52 @@
 @{
   Layout = "_Layout";
 }
-<h1>Project Name or some other header</h1>
+
+@using Factory.Models;
+
+<h1 class="jumbotron">Dr. Sillystringz's Factory</h1>
+
+<div class="row">
+  <div class="col-5">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Engineers</h3>
+        @if (@ViewBag.Engineers.Count == 0)
+        {
+          <p class="card-text">No engineers have been added yet</p>
+        }
+        else
+        {
+          <ul class="card-text">
+            @foreach (Engineer engineer in @ViewBag.Engineers)
+            {
+              <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="col-5">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Machines</h3>
+        @if (@ViewBag.Machines.Count == 0)
+        {
+          <p class="card-text">No machines have been added yet</p>
+        }
+        else
+        {
+          <ul class="card-text">
+            @foreach (Machine machine in @ViewBag.Machines)
+            {
+              <li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = machine.MachineId })</li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+  </div>
+</div>
 <p>@Html.ActionLink("View All Machines", "Index", "Machines")</p>
-<p>@Html.ActionLink("View All Engineer Categories", "Index", "Engineers")</p>
+<p>@Html.ActionLink("View All Engineers", "Index", "Engineers")</p>
